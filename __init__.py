@@ -78,3 +78,6 @@ class RespeakerSkill(MycroftSkill):
                     self.log.warn("Respeaker - pixel ring style switch failed")
             else:
                 self.log.warn("Respeaker - style not valid, nothing changed")
+
+def create_skill():
+    return RespeakerSkill()
