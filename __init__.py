@@ -31,10 +31,10 @@ class RespeakerSkill(MycroftSkill):
             self.power.on()
             self.pixel_ring.set_brightness(10)
             self.pixelringpresent = True
-            self.log.info("Respeaker - Yes Pixel Ring Support - SUCCESS")
+            self.log.info("Respeaker - Yes Pixel Ring Support, SUCCESS")
         except:
             self.pixelringpresent = False
-            self.log.warn("Respeaker - No Pixel Ring Support - FAILED")
+            self.log.warn("Respeaker - No Pixel Ring Support, FAILED")
 
 
     def handle_wakeword_started(self):
