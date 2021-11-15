@@ -14,7 +14,7 @@ class RespeakerSkill(MycroftSkill):
         self.learning = True
 
     def initialize(self):
-        self.ringstyle = self.settings.get('ringstyle').lower()
+        self.ringstyle = self.settings.get('ringstyle')
         if self.ringstyle == "google" or self.ringstyle == "echo":
             self.log.debug("Respeaker - Ring Style options good")
         else:
@@ -68,8 +68,8 @@ class RespeakerSkill(MycroftSkill):
     @intent_handler('apa102.pattern.change.intent')
     def handle_apa102_pattern_change_intent(self, message):
         if self.pixelringpresent:
-            pattern = message.data.get("pattern").lower()
-            if pattern == "echo" or pattern == "google":
+            pattern = message.data.get("pattern")
+            if pattern.lower() == "echo" or pattern.lower() == "google":
                 try:
                     self.pixel_ring.off()
                     self.pixel_ring = PixelRing(pattern)
