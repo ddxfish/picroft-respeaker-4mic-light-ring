@@ -24,7 +24,6 @@ class RespeakerSkill(MycroftSkill):
         self.add_event('recognizer_loop:record_end', self.handle_listener_ended)
         self.add_event('recognizer_loop:audio_output_start', self.handle_response_started)
         self.add_event('recognizer_loop:audio_output_end', self.handle_response_ended)
-        self.add_event('mycroft.skills.settings.update', self.handle_settings_updated)
         try:
             self.pixel_ring = PixelRing(self.ringstyle)
             self.power = LED(5)
