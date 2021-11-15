@@ -1,0 +1,8 @@
+skillMetadata:
+  sections:
+  - name: Light Ring
+    fields:
+    - name: style
+      type: text
+      label: google or echo
+      value: 'google'
