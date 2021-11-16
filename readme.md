@@ -27,8 +27,11 @@ sudo ./install.sh
 * Tested on Raspberry Pi 4 (4GB) running Picroft v20.08
 * Did you enable SPI in raspi-config and reboot?
 * Test your Respeaker mic is working in Mycroft
-* I had to run the Respeaker install.sh twice
+* I had to run the Respeaker install.sh twice as instructed
 * Get a fresh Picroft image, respeaker it, SPI and install this again
+
+## Known Bugs
+* Pixel ring stops when Mycroft's response ends. No response, no ring stop.
 
 ## Credits
 * apa102 https://github.com/tinue/apa102-pi
