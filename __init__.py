@@ -40,7 +40,7 @@ class RespeakerSkill(MycroftSkill):
             self.pixelringpresent = False
             self.log.warn("Respeaker - No Pixel Ring Support, FAILED")
 
-    def ring_stop():
+    def ring_stop(self):
         self.pixel_ring.off()
         self.log.warn("pixel ring timed out")
 
