@@ -1,7 +1,7 @@
 # Seeed Respeaker 4-mic Raspberry Pi light ring Support
 # Animates your light ring during listen/think/speak phases
 import threading
-from time import sleep
+import time
 import sys
 from mycroft import MycroftSkill, intent_handler
 try:
@@ -40,14 +40,15 @@ class RespeakerSkill(MycroftSkill):
     #Because sometimes the light doesn't go off
     def ring_stop():
         self.pixel_ring.off()
+        self.log.warn("ring off")
 
     def handle_wakeword_started(self):
         if self.pixelringpresent:
             try:
                 self.pixel_ring.wakeup()
-                timer = threading.Timer(40.0, ring_stop)
+                timer = threading.Timer(30.0, ring_stop)
                 timer.start()
-                self.log.warn("timer done")
+                self.log.warn("light ring timer began")
             except:
                 self.log.warn("Respeaker - pixel ring command failed, might be thread")
 
