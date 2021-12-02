@@ -10,6 +10,15 @@ try:
 except:
     self.log.warn("Respeaker - Failure importing gpiozero or apa102pixel.py")
 
+#Because sometimes the light doesn't go off
+def ring_stop():
+    pixel_ring = PixelRing("google")
+    power = LED(5)
+    power.on()
+    pixel_ring.set_brightness(10)
+    pixelringpresent = True
+    pixel_ring.off()
+
 class RespeakerSkill(MycroftSkill):
     def __init__(self):
         super().__init__()
@@ -36,11 +45,6 @@ class RespeakerSkill(MycroftSkill):
         except:
             self.pixelringpresent = False
             self.log.warn("Respeaker - No Pixel Ring Support, FAILED")
-
-    #Because sometimes the light doesn't go off
-    def ring_stop():
-        self.pixel_ring.off()
-        self.log.warn("ring off")
 
     def handle_wakeword_started(self):
         if self.pixelringpresent:
