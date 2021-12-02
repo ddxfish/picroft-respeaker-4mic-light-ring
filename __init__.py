@@ -42,6 +42,7 @@ class RespeakerSkill(MycroftSkill):
 
     def ring_stop():
         self.pixel_ring.off()
+        self.log.warn("pixel ring timed out")
 
     def handle_wakeword_started(self):
         if self.pixelringpresent:
