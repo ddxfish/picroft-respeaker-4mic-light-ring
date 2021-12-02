@@ -11,10 +11,6 @@ except:
     self.log.warn("Respeaker - Failure importing gpiozero or apa102pixel.py")
 
 #Because sometimes the light doesn't go off
-def ring_stop():
-    pixel_ring2 = RespeakerSkill()
-    pixel_ring2.ring_off()
-    print("pixel ring off supposedly")
 
 class RespeakerSkill(MycroftSkill):
     def __init__(self):
@@ -44,14 +40,14 @@ class RespeakerSkill(MycroftSkill):
             self.pixelringpresent = False
             self.log.warn("Respeaker - No Pixel Ring Support, FAILED")
 
-    def ring_off():
+    def ring_stop():
         self.pixel_ring.off()
 
     def handle_wakeword_started(self):
         if self.pixelringpresent:
             self.pixel_ring.wakeup()
-            timer = threading.Timer(30.0, ring_stop)
-            timer.start()
+            self.timer = threading.Timer(30.0, self.ring_stop)
+            self.timer.start()
             self.log.warn("light ring timer began")
 
     def handle_listener_ended(self):
