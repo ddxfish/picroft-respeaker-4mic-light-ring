@@ -12,10 +12,9 @@ except:
 
 #Because sometimes the light doesn't go off
 def ring_stop():
-    pixel_ring2 = PixelRing("google")
-    pixel_ring2.off()
+    pixel_ring2 = RespeakerSkill()
+    pixel_ring2.ring_off()
     print("pixel ring off supposedly")
-
 
 class RespeakerSkill(MycroftSkill):
     def __init__(self):
@@ -39,10 +38,14 @@ class RespeakerSkill(MycroftSkill):
             self.power.on()
             self.pixel_ring.set_brightness(10)
             self.pixelringpresent = True
+            self.pixel_ring.off()
             self.log.info("Respeaker - Yes Pixel Ring Support, SUCCESS")
         except:
             self.pixelringpresent = False
             self.log.warn("Respeaker - No Pixel Ring Support, FAILED")
+
+    def ring_off():
+        self.pixel_ring.off()
 
     def handle_wakeword_started(self):
         if self.pixelringpresent:
