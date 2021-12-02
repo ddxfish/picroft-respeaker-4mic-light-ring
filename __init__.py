@@ -12,12 +12,13 @@ except:
 
 #Because sometimes the light doesn't go off
 def ring_stop():
-    pixel_ring = PixelRing("google")
-    power = LED(5)
-    power.on()
-    pixel_ring.set_brightness(10)
-    pixelringpresent = True
-    pixel_ring.off()
+    pixel_ring2 = PixelRing("google")
+    power2 = LED(5)
+    power2.on()
+    pixel_ring2.set_brightness(10)
+    pixel_ring2.off()
+    print("pixel ring off supposedly")
+
 
 class RespeakerSkill(MycroftSkill):
     def __init__(self):
