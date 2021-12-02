@@ -47,8 +47,8 @@ class RespeakerSkill(MycroftSkill):
     def handle_wakeword_started(self):
         if self.pixelringpresent:
             self.pixel_ring.wakeup()
-            self.timer = threading.Timer(30.0, self.ring_stop)
-            self.timer.start()
+            timer = threading.Timer(30.0, self.ring_stop)
+            timer.start()
             self.log.warn("light ring timer began")
 
     def handle_listener_ended(self):
