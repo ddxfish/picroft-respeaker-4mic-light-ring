@@ -13,9 +13,6 @@ except:
 #Because sometimes the light doesn't go off
 def ring_stop():
     pixel_ring2 = PixelRing("google")
-    power2 = LED(5)
-    power2.on()
-    pixel_ring2.set_brightness(10)
     pixel_ring2.off()
     print("pixel ring off supposedly")
 
